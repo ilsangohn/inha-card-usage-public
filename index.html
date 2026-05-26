@@ -3,45 +3,58 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>과제 집행 내역 공개</title>
+  <title>과제 집행 내역</title>
   <style>
     body{margin:0;background:#f5f7fb;color:#1f2937;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif}
-    main{width:min(1120px,calc(100% - 32px));margin:0 auto;padding:24px 0 36px}
-    h1{margin:0 0 6px;font-size:24px}h2{font-size:17px;margin:18px 0 8px}.meta{color:#6b7280;margin:0 0 18px}
-    .summary{display:grid;grid-template-columns:repeat(2,1fr);background:#fff;border:1px solid #d9e1ec;border-radius:8px;overflow:hidden;margin-bottom:16px}
-    .metric{padding:14px;border-right:1px solid #d9e1ec}.metric:last-child{border-right:0}.metric span{display:block;color:#6b7280;font-size:12px;font-weight:700}.metric strong{font-size:21px}
-    .table{overflow:auto;background:#fff;border:1px solid #d9e1ec;border-radius:8px;margin-bottom:16px}table{width:100%;min-width:760px;border-collapse:collapse}th,td{padding:10px 12px;border-bottom:1px solid #d9e1ec;text-align:left;white-space:nowrap}th{background:#eef5fc;color:#135f9f}.amount{text-align:right}.purpose{white-space:normal;min-width:220px}
+    main{width:min(420px,calc(100% - 32px));margin:12vh auto 0;background:#fff;border:1px solid #d9e1ec;border-radius:10px;padding:22px;box-shadow:0 18px 48px rgba(15,23,42,.12)}
+    h1{margin:0 0 8px;font-size:21px}p{margin:0 0 16px;color:#6b7280}label{display:block;margin:0 0 6px;font-weight:700}
+    input{width:100%;height:40px;border:1px solid #cfd8e3;border-radius:7px;padding:0 10px;font:inherit;box-sizing:border-box}
+    button{margin-top:12px;width:100%;height:40px;border:0;border-radius:7px;background:#0b6fbd;color:#fff;font-weight:800;cursor:pointer}
+    .error{margin-top:10px;color:#b42318;font-weight:700}
   </style>
 </head>
 <body>
-  <main>
-    <h1>과제 집행 내역 공개</h1>
-    <p class="meta">(78151-1) [센터운영비] 단일광자 검출기 데이터 분석을 위한 통계적 방법 및 이론 연구(기초연구실) · 생성일 2026. 5. 26. 오후 5:22:58</p>
-    <section class="summary">
-      <div class="metric"><span>전체 건수</span><strong>5</strong></div>
-      <div class="metric"><span>전체 금액</span><strong>340,200원</strong></div>
-    </section>
-    <h2>소유주별 합계</h2>
-    <section class="table">
-      <table>
-        <thead><tr><th>소유주</th><th class="amount">건수</th><th class="amount">카드 합계</th><th class="amount">신청/집행 합계</th><th class="amount">총액</th></tr></thead>
-        <tbody><tr><td>온일상</td><td class="amount">4</td><td class="amount">180,200원</td><td class="amount">0원</td><td class="amount">180,200원</td></tr><tr><td>조민호</td><td class="amount">1</td><td class="amount">160,000원</td><td class="amount">0원</td><td class="amount">160,000원</td></tr></tbody>
-      </table>
-    </section>
-    <h2>카드 상세 내역</h2>
-    <section class="table">
-      <table>
-        <thead><tr><th>사용일</th><th>결제일</th><th>사용자</th><th>카드</th><th>가맹점</th><th class="amount">사용금액</th><th>예산비목</th><th>예산세목</th><th class="purpose">사용내역</th></tr></thead>
-        <tbody><tr><td>2026-05-24</td><td>2026-06-23</td><td>온일상</td><td>****-6932</td><td>필동함박 스타필드마켓 일산</td><td class="amount">67,500원</td><td>관리운영비</td><td>회의비(식사비용)</td><td class="purpose">회의비</td></tr><tr><td>2026-05-22</td><td>2026-06-23</td><td>온일상</td><td>****-6932</td><td>인하규카츠</td><td class="amount">48,000원</td><td>관리운영비</td><td>회의비(식사비용)</td><td class="purpose">회의비</td></tr><tr><td>2026-05-15</td><td>2026-06-23</td><td>조민호</td><td>****-8962</td><td>금산양꼬치</td><td class="amount">160,000원</td><td>관리운영비</td><td>회의비(식사비용)</td><td class="purpose">단일광자 검출기 데이터에 대한 형태분석 연구 회의</td></tr><tr><td>2026-05-13</td><td>2026-06-23</td><td>온일상</td><td>****-6932</td><td>스타벅스 코리아</td><td class="amount">32,600원</td><td>관리운영비</td><td>회의비(식사비용)</td><td class="purpose">회의비</td></tr><tr><td>2026-05-10</td><td>2026-06-23</td><td>온일상</td><td>****-6932</td><td>38마일</td><td class="amount">32,100원</td><td>관리운영비</td><td>회의비(식사비용)</td><td class="purpose">회의비</td></tr></tbody>
-      </table>
-    </section>
-    <h2>신청/집행 상세 내역</h2>
-    <section class="table">
-      <table>
-        <thead><tr><th>승인일</th><th>신청일</th><th>입금일/회의일</th><th>소유주</th><th class="amount">신청금액</th><th>신청유형</th><th>처리현황</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </section>
+  <main id="gate">
+    <h1>과제 집행 내역</h1>
+    <p>내용을 보려면 비밀번호를 입력하세요.</p>
+    <form id="form">
+      <label for="password">비밀번호</label>
+      <input id="password" type="password" autocomplete="current-password" autofocus>
+      <button type="submit">열기</button>
+      <div id="error" class="error" hidden>비밀번호가 맞지 않습니다.</div>
+    </form>
   </main>
+  <script>
+    const payload={"v":1,"kdf":"PBKDF2-SHA256","iterations":150000,"salt":"oDO+hoXsjPtWuqK8j/msww==","iv":"APHayapwK3zQ0RQQ","data":"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"};
+    const form=document.getElementById("form");
+    const error=document.getElementById("error");
+    form.addEventListener("submit",async(event)=>{
+      event.preventDefault();
+      error.hidden=true;
+      try{
+        const html=await decrypt(document.getElementById("password").value);
+        document.open();
+        document.write(html);
+        document.close();
+      }catch(e){
+        error.hidden=false;
+      }
+    });
+    async function decrypt(password){
+      const salt=base64ToBytes(payload.salt);
+      const iv=base64ToBytes(payload.iv);
+      const data=base64ToBytes(payload.data);
+      const baseKey=await crypto.subtle.importKey("raw",new TextEncoder().encode(password),"PBKDF2",false,["deriveKey"]);
+      const key=await crypto.subtle.deriveKey({name:"PBKDF2",salt,iterations:payload.iterations,hash:"SHA-256"},baseKey,{name:"AES-GCM",length:256},false,["decrypt"]);
+      const plain=await crypto.subtle.decrypt({name:"AES-GCM",iv},key,data);
+      return new TextDecoder().decode(plain);
+    }
+    function base64ToBytes(value){
+      const binary=atob(value);
+      const bytes=new Uint8Array(binary.length);
+      for(let i=0;i<binary.length;i+=1)bytes[i]=binary.charCodeAt(i);
+      return bytes;
+    }
+  </script>
 </body>
 </html>
